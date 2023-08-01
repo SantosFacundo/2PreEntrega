@@ -3,32 +3,70 @@
 let Nombre = prompt ("Ingrese su Nombre");
 let Apellido = prompt ("Ingrese su Apellido");
 let Edad = Number (prompt ("Ingrese su Edad"));
-let costoTotal = 0
-let rta = ""
 
+if (Nombre, Apellido != "", Edad <= 17 )
+        alert("Los datos ingresados no son válidos. Por favor, complete todos los campos correctamente.")
 
-function iva(precio){
-    return precio * 0.21
-}
-
-if(Edad >= 18){
-    alert("Usuario: " + Nombre + " "+ Apellido + " \n¡Bienvenido! \n¿Esta seguro que desea continuar?")  
-
-    let Producto = prompt("Ingrese el numero del producto que desea comprar \n1)Proteina \n2)Creatina \n3)Ganador de Peso")
-    let Marca = Number(prompt("¿Que marca desea comprar? \n1)Starnutrition\n2)ENA\n3)Gentech."))
-    let Precio = Number(prompt("Ingrese el precio que desea pagar:\n1) $400\n2) $500\n3) $600"));
-    let Unidades = Number(prompt("¿Cuántas unidades desea comprar?"));
-
-    costoTotal = ((Precio * Unidades) + iva(Precio))
-
-    alert("El costo total de su compra es: $" + costoTotal + "\n¡Muchas Gracias por su compra!");
-
-}else{
-    alert("Usuario: " + Nombre + " "+ Apellido + " \nLo sentimos, usted no puede ingresar");
-}
-
-/* Compra y detalle de producto y precio */
-
-
+    else{
+        alert("¡Datos cargados con exito! \nUsuario: " + Nombre + " "+ Apellido + " \n¡Bienvenido! \n¿Presione ENTER para continuar?")
+    }
+     
+/*Clase producto, con atributos y propiedades*/
+class Producto{
+    constructor(id, nombreProducto, marca, precio, cantidad){
+        this.id = id
+        this.nombreProducto = nombreProducto
+        this.marca = marca
+        this.precio = precio
+        this.cantidad = cantidad
+    }
     
+    sumar_iva(){
+        return this.precio * 1.21
+    }
+
+    descripcion(){
+        return "\nNombre: " +  this.nombreProducto+
+                "\nMarca: " + this.marca+
+                "\nPrecio: $" + this.precio+
+                "\nPrecio + IVA: " + this.sumar_iva()+
+                "\n==============="
+    }
+}
+
+const listaDeProductos = [  new Producto(1,"Proteina","ENA" ,400),
+
+                            new Producto(2,"Creatina","StarNutricion", 600),
+
+                            new Producto(3,"Ganador de Peso","Gentech", 800)
+]
+
+let ProductosDisponibles = ""
+listaDeProductos.forEach(producto => {
+    ProductosDisponibles += producto.descripcion()
+})
+
+alert("Lista de Productos Disponibles: " + ProductosDisponibles);
+
+
+let seleccion = Number(prompt("Ingrese el número del producto que desea seleccionar:"));
+
+if (seleccion >= 1 && seleccion <= listaDeProductos.length) {
+  let cantidad = Number(prompt("Ingrese la cantidad de unidades que desea comprar:"));
+
+  if (isNaN(cantidad) && cantidad > 0) {
+    let productoSeleccionado = listaDeProductos[seleccion - 1];
+    let costoTotal = productoSeleccionado.sumar_iva() * cantidad;
+
+    alert( "Producto seleccionado:\n" + productoSeleccionado.descripcion() +
+            "\nCantidad seleccionada: " + cantidad +
+            "\nCosto Total de la compra: $" + costoTotal +
+            "\n¡Muchas Gracias por su compra!");
+  } else {
+    alert("La cantidad ingresada no es válida.");
+  }
+} else {
+  alert("La opción seleccionada no es válida.");
+}
+
 
