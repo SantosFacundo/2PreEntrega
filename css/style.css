@@ -1,61 +1,106 @@
-*{
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    list-style-type: none;
     text-decoration: none;
-}
+    list-style: none;
+  }
 
+  /* ESTILOS GENERALES */
 body{
-    background-color: rgba(231, 131, 0, 0.774);
-}
+  width: 100%;
+  height: 100vh;
+  background: rgb(196, 196, 196);
+  background: linear-gradient(
+    90deg,
+    rgba(196, 196, 196, 0.5886729691876751) 0%,
+    rgba(0, 0, 0, 0.5410539215686274) 100%
+  );
+  background-attachment: fixed;
+  }
 
 
-header {
-    display: flex;
+    /* ESTILOS DEL HEADER */
+
+  header .contenedor {
     width: 100%;
-}
-
-h1{
+    height:100%;
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-left: 15px;
-}
-
-nav{
-    width: 60%;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
-    margin-left: 100px;
-}
-
-
-
- 
-h2{
-    display: flex;
-    justify-content:center ;
-    margin: 20px;
-}
-
-.container{
-    background-color: black;
-    display: flex;
-    justify-content: space-around;
-    background: black;
-    color: white;
-    width: 100%;
-}
-
-.div-noticias {
-    height: 300px;
-    background-color: rgba(95, 86, 86, 0.486);
-    width: 25%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
+    padding-right: 20px;
+    
+    
+  .contenedor__img {
+      width: 8%; 
+    }
+    
+  .contenedor__title {
+      width: 45%;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+    }
+      
+    .contenedor__title a {
+      color: black; 
+      text-decoration: none; 
+    }
+    
+  .contenedor__nav {
+      width: 47%;
+
+  .contenedor__ul{
+      display: flex;
+      justify-content: space-between;
+  
+  .contenedor__a {
+          text-decoration: none;
+          color: black;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+
+
+
+/* ESTILOS DEL MAIN */
+
+.main__index #contenedor_productos{
+  display: flex;
+  justify-content:space-evenly;
+  padding-top: 40px; 
+}
+
+
+/* ESTILOS DE FOOTER */
+footer{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .redes-sociales a{
+    text-decoration: none;
+    color: black;
+    margin: 0.3rem;
+    font-size: 1.5rem;
+  }
+  
+  .info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .info p{
+    margin: 0 auto;
+    padding-left: 1rem;
   }
